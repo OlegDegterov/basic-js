@@ -22,7 +22,7 @@ export default function dateSample(sampleActivity ) {
   // remove line with error and write your code here
   if (isNaN(Number(sampleActivity)) || !sampleActivity) {return false}
   if ((typeof Number(sampleActivity))==='number') {
-    return (Math.round((Math.log(MODERN_ACTIVITY/Number(sampleActivity)))/(0.693/HALF_LIFE_PERIOD)))
+    return (Math.ceil((Math.log(MODERN_ACTIVITY/Number(sampleActivity)))/(0.693/HALF_LIFE_PERIOD)))
   }
 }
 
