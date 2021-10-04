@@ -10,11 +10,16 @@ export default {
     return this.chain.length;
   },
   addLink(value) {
-    this.chain.push(value);
+    if (value==null) { this.chain.push(`( )`)
+    } else {this.chain.push(`( ${value} )`)};
     return this
   },
   removeLink(position) {
-    this.chain.splice(position, 1);
+    if (((typeof position)!== 'number')
+        || !(Number.isInteger(position))
+        || chaines.chain.find(item => item === position)) {
+      throw new Error ('You can\'t remove incorrect link!')
+    } else {this.chain.splice(position, 1)}
     return this
   },
   reverseChain() {
@@ -22,6 +27,8 @@ export default {
     return this
   },
   finishChain() {
-    return this.chain
+    setTimeout(function (){ return chaines.chain = []}, 0);
+    //console.log(this)
+    return this.chain.join('~~')
   }
 };
