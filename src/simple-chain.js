@@ -17,7 +17,7 @@ export default {
   removeLink(position) {
     if (((typeof position)!== 'number')
         || !(Number.isInteger(position))
-        || chaines.chain.find(item => item === position)) {
+        || this.chain.find(item => item === position)) {
       throw new Error ('You can\'t remove incorrect link!')
     } else {this.chain.splice(position, 1)}
     return this
